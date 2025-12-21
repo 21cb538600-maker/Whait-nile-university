@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>HOota Technology</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{background:#f4f6f9;font-family:Cairo,Arial}
+.navbar-brand{font-weight:700;font-size:22px}
+.hero{background:linear-gradient(135deg,#0d6efd,#084298);color:#fff;padding:60px;text-align:center}
+.course-card{cursor:pointer;transition:.3s}
+.course-card:hover{transform:translateY(-5px)}
+.course-page{display:none}
+.course-page.active{display:block}
+.lesson{background:#fff;border-radius:10px;padding:15px;margin-bottom:15px}
+.whatsapp{position:fixed;bottom:20px;left:20px;background:#25D366;color:#fff;
+padding:15px;border-radius:50%;font-size:22px;text-decoration:none}
+video{width:100%;border-radius:10px}
+.back{cursor:pointer;color:#0d6efd;font-weight:bold}
+footer{background:#fff;padding:30px;margin-top:40px;text-align:center}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-primary">
+<div class="container">
+<span class="navbar-brand">HOota Technology</span>
+</div>
+</nav>
+
+<div class="hero">
+<h1>منصة HOota Technology التعليمية</h1>
+<p>منصة جامعية للكورسات التقنية والعلمية</p>
+</div>
+
+<!-- HOME -->
+<div class="container mt-5" id="home">
+<h3>📚 الكورسات</h3>
+<div class="row g-4">
+
+<script>
+const courses=[
+{id:"prog",t:"أساليب البرمجة"},
+{id:"math",t:"الرياضيات المتقطعة"},
+{id:"arabic",t:"اللغة العربية"},
+{id:"computer",t:"مهارات الحاسوب"},
+{id:"comm",t:"مهارات الاتصال"},
+{id:"calc",t:"الحسبان"},
+{id:"english",t:"اللغة الإنجليزية"},
+];
+
+document.write(courses.map(c=>`
+<div class="col-md-4">
+<div class="card course-card" onclick="openCourse('${c.id}')">
+<div class="card-body">
+<h5>${c.t}</h5>
+<button class="btn btn-primary w-100">الدخول</button>
+</div>
+</div>
+</div>
+`).join(""));
+</script>
+
+</div>
+</div>
+
+<!-- TEMPLATE COURSE -->
+<script>
+const ACCESS_PASSWORD="hoota2025";
+
+function openCourse(id){
+let p=prompt("أدخل كلمة المرور:");
+if(p!==ACCESS_PASSWORD){alert("كلمة المرور غير صحيحة");return;}
+document.getElementById("home").style.display="none";
+document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+window.scrollTo(0,0);
+}
+function backHome(){
+document.getElementById("home").style.display="block";
+document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
+window.scrollTo(0,0);
+}
+</script>
+
+<!-- COURSES CONTENT -->
+
+<div class="container mt-5 course-page" id="prog">
+<span class="back" onclick="backHome()">← العودة</span>
+<h2>أساليب البرمجة</h2>
+
+<div class="lesson">
+<h5>الدرس 1: مقدمة</h5>
+<video controls src="videos/programming1.mp4"></video>
+<a href="pdfs/programming1.pdf" target="_blank">📄 PDF</a>
+</div>
+
+<div class="lesson">
+<h5>الدرس 2: المتغيرات</h5>
+<video controls src="videos/programming2.mp4"></video>
+<a href="pdfs/programming2.pdf" target="_blank">📄 PDF</a>
+</div>
+</div>
+
+<div class="container mt-5 course-page" id="math">
+<span class="back" onclick="backHome()">← العودة</span>
+<h2>الرياضيات المتقطعة</h2>
+<div class="lesson">
+<h5>Logic</h5>
+<video controls src="videos/math1.mp4"></video>
+<a href="pdfs/math1.pdf">📄 PDF</a>
+</div>
+</div>
+
+<div class="container mt-5 course-page" id="arabic">
+<span class="back" onclick="backHome()">← العودة</span>
+<h2>اللغة العربية</h2>
+<div class="lesson">
+<h5>النحو</h5>
+<video controls src="videos/arabic1.mp4"></video>
+<a href="pdfs/arabic1.pdf">📄 PDF</a>
+</div>
+</div>
+
+<div class="container mt-5 course-page" id="computer">
+<span class="back" onclick="backHome()">← العودة</span>
+<h2>مهارات الحاسوب</h2>
+<div class="lesson">
+<h5>أساسيات الكمبيوتر</h5>
+<video controls src="videos/computer1.mp4"></video>
+<a href="pdfs/computer1.pdf">📄 PDF</a>
+</div>
+</div>
+
+<div class="container mt-5 course-page" id="comm">
+<span class="back" onclick="backHome()">← العودة</span>
+<h2>مهارات الاتصال</h2>
+<div class="lesson">
+<h5>الاتصال الفعال</h5>
+<video controls src="videos/comm1.mp4"></video>
+<a href="pdfs/comm1.pdf">📄 PDF</a>
+</div>
+</div>
+
+<div class="container mt-5 course-page" id="calc">
+<span class="back" onclick="backHome()">← العودة</span>
+<h2>الحسبان</h2>
+<div class="lesson">
+<h5>Limits</h5>
+<video controls src="videos/calc1.mp4"></video>
+<a href="pdfs/calc1.pdf">📄 PDF</a>
+</div>
+</div>
+
+<div class="container mt-5 course-page" id="english">
+<span class="back" onclick="backHome()">← العودة</span>
+<h2>اللغة الإنجليزية</h2>
+<div class="lesson">
+<h5>Basics</h5>
+<video controls src="videos/english1.mp4"></video>
+<a href="pdfs/english1.pdf">📄 PDF</a>
+</div>
+</div>
+
+<a href="https://wa.me/249900623733" class="whatsapp">💬</a>
+
+<footer>
+<a href="https://youtube.com/channel/UCDHo57HZnBCwPB0215yQXlA"
+class="btn btn-danger">تابعنا على يوتيوب</a>
+<p class="mt-3">© 2025 HOota Technology</p>
+</footer>
+
+</body>
+</html>
