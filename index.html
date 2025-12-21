@@ -15,11 +15,11 @@ body{
     transition:.3s;
 }
 
-/* NAVBAR */
+/* ===== NAVBAR ===== */
 .navbar-brand{font-weight:700;font-size:22px}
 .nav-link{font-size:17px;font-weight:600}
 
-/* IOS DARK TOGGLE */
+/* ===== IOS DARK TOGGLE ===== */
 .ios-switch{
     width:42px;height:22px;background:#ccc;
     border-radius:20px;position:relative;cursor:pointer;
@@ -32,111 +32,77 @@ body{
 body.dark .ios-switch{background:#0d6efd}
 body.dark .ios-switch::before{left:22px}
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
     background:linear-gradient(135deg,#0d6efd,#0a58ca);
     color:#fff;padding:60px 20px;text-align:center;
     border-radius:0 0 30px 30px;
 }
 .hero h1{font-size:38px;font-weight:700}
-.hero p{font-size:20px;margin-top:15px}
+.hero p{font-size:20px; margin-top:15px;}
 
-/* STATS */
+/* ===== STATISTICS ===== */
 .stats{
-    display:flex;justify-content:center;
-    gap:40px;margin-top:40px;text-align:center;
+    display:flex;justify-content:center;gap:40px;margin-top:40px;text-align:center;
 }
 .stat-box{
     background:#fff;padding:20px 30px;border-radius:15px;
     box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
-.stat-box h3{font-size:28px;color:#0d6efd}
-.stat-box p{color:#555}
+.stat-box h3{font-size:28px;color:#0d6efd;margin-bottom:5px}
+.stat-box p{font-size:16px;color:#555}
 
-/* HOME ARTICLE */
+/* ===== HOME ARTICLE ===== */
 .home-article{
     background:#fff;padding:30px;border-radius:20px;
     margin-top:40px;line-height:1.9;
     border:2px solid #dee2e6;
 }
 
-/* COURSES */
+/* ===== COURSES ===== */
 .course-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;margin-top:40px;
+    gap:25px;
+    margin-top:40px;
 }
-
 .course-card{
-    background:#fff;border-radius:15px;
-    overflow:hidden;border:2px solid #0d6efd;
-    cursor:pointer;transition:.3s;
-    position:relative;
-    display:flex;flex-direction:column;
+    background:#fff;border-radius:15px;overflow:hidden;
+    border:2px solid #0d6efd;cursor:pointer;
+    transition:.3s;display:flex;flex-direction:column;
 }
-
-.course-card img{
-    width:100%;height:160px;
-    object-fit:cover;
-    filter:brightness(.9);
-    transition:.3s;
-}
-
-.course-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
-}
-.course-card:hover img{
-    filter:brightness(1.05);
-    transform:scale(1.05);
-}
-
-.course-card::after{
-    content:"";
-    position:absolute;inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.35),transparent 60%);
-}
-
-.course-card-body{
-    padding:15px;
-    position:relative;
-    z-index:2;
-    display:flex;flex-direction:column;
-    background:#fff;
-}
-
-.course-card h5{font-weight:700}
+.course-card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,0.1);}
+.course-card img{width:100%;height:160px;object-fit:cover}
+.course-card-body{padding:15px;flex:1;display:flex;flex-direction:column}
+.course-card h5{font-weight:700;margin-bottom:10px}
 .course-card p{font-size:14px;color:#555;flex:1}
-
-.btn-enter{
-    background:#0d6efd;color:#fff;
-    padding:10px;border-radius:10px;
-    text-align:center;font-weight:700;
-    text-decoration:none;
+.course-card .btn-enter{
+    background:#0d6efd;color:#fff;text-align:center;
+    padding:10px 0;border-radius:10px;font-weight:700;
+    text-decoration:none;margin-top:10px;
 }
 
-/* COURSE PAGE */
+/* ===== COURSE PAGE ===== */
 .course-page{display:none}
 .course-page.active{display:block}
-
 .back-btn{
+    display:inline-block;margin-bottom:25px;
     background:#ff5722;color:#fff;
     padding:15px 35px;border-radius:30px;
-    font-size:20px;font-weight:700;
-    display:inline-block;cursor:pointer;
+    font-size:20px;font-weight:700;cursor:pointer;
 }
 
-/* LESSON */
+/* ===== LESSON ===== */
 .lesson{
     background:#fff;padding:20px;border-radius:15px;
     border:2px solid #dee2e6;margin-bottom:20px;
 }
 video{width:100%;border-radius:10px}
 
-/* DARK MODE */
+/* ===== DARK MODE ===== */
 body.dark{background:#121212;color:#eaeaea}
 body.dark .navbar,
-body.dark footer{background:#1f1f1f!important}
+body.dark footer{background:#1f1f1f !important}
 body.dark .hero{background:linear-gradient(135deg,#222,#000)}
 body.dark .course-card,
 body.dark .lesson,
@@ -146,7 +112,7 @@ body.dark .stat-box{
 }
 body.dark p{color:#ccc}
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
     background:#fff;padding:30px;
     margin-top:50px;text-align:center;
@@ -156,59 +122,173 @@ footer{
 
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 <div class="container">
 <a class="navbar-brand">Mahmoud Technology</a>
-<div class="collapse navbar-collapse show">
-<ul class="navbar-nav ms-auto gap-3 align-items-center">
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse show" id="nav">
+<ul class="navbar-nav ms-auto align-items-center gap-3">
 <li class="nav-item"><a class="nav-link" onclick="backHome()">الرئيسية</a></li>
 <li class="nav-item"><a class="nav-link" href="#courses">الكورسات</a></li>
+<li class="nav-item"><a class="nav-link" href="https://wa.me/249900623733">تواصل معي</a></li>
+<li class="nav-item"><a class="nav-link" href="https://youtube.com/channel/UCDHo57HZnBCwPB0215yQXlA">يوتيوب</a></li>
 <li class="nav-item"><div class="ios-switch" onclick="toggleDark()"></div></li>
 </ul>
 </div>
 </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
 <h1>منصة Mahmoud Technology</h1>
-<p>تعليم جامعي وتقني بأسلوب عصري</p>
+<p>منصة تعليمية جامعية وتقنية بأسلوب بسيط واحترافي</p>
 </div>
 
+<!-- STATISTICS -->
 <div class="container stats">
-<div class="stat-box"><h3>8</h3><p>كورسات</p></div>
-<div class="stat-box"><h3>1200+</h3><p>طلاب</p></div>
-<div class="stat-box"><h3>50+</h3><p>دروس</p></div>
+  <div class="stat-box">
+    <h3>8</h3>
+    <p>كورسات</p>
+  </div>
+  <div class="stat-box">
+    <h3>1200+</h3>
+    <p>طلاب مسجلون</p>
+  </div>
+  <div class="stat-box">
+    <h3>50+</h3>
+    <p>دروس</p>
+  </div>
 </div>
 
+<!-- HOME -->
 <div class="container" id="home">
 
-<h3 class="mt-5 text-center" id="courses">📚 الكورسات</h3>
+<div class="home-article">
+<h3>عن المنصة</h3>
+<p>
+Mahmoud Technology منصة تعليمية تهدف إلى تبسيط العلوم التقنية
+والجامعية للطلاب بأسلوب عملي ومباشر.
+</p>
+<p>
+توفر المنصة كورسات في البرمجة، الرياضيات، الحاسوب، اللغات،
+ومقرر الثقافة الإسلامية لبناء المعرفة والقيم معًا.
+</p>
+<p>
+المحتوى مقدم بطريقة مرئية مع ملفات داعمة لتسهيل الفهم
+وإتاحة التعلم في أي وقت ومن أي جهاز.
+</p>
+</div>
+
+<h3 class="mt-5 mb-4 text-center" id="courses">📚 الكورسات</h3>
 
 <div class="course-grid">
 <script>
 const courses=[
-{id:"prog",t:"أساليب البرمجة",d:"أساسيات البرمجة والتفكير المنطقي",img:"images/cpp.jpg"},
-{id:"math",t:"الرياضيات المتقطعة",d:"المنطق والمجموعات",img:"https://via.placeholder.com/300x160"},
-{id:"arabic",t:"اللغة العربية",d:"النحو والأساسيات اللغوية",img:"images/arabic.jpg"},
-{id:"computer",t:"مهارات الحاسوب",d:"أساسيات الكمبيوتر",img:"https://via.placeholder.com/300x160"},
-{id:"comm",t:"مهارات الاتصال",d:"التواصل الفعال",img:"https://via.placeholder.com/300x160"},
+{id:"prog",t:"أساليب البرمجة",d:"فهم أساسيات البرمجة والتفكير المنطقي",img:"https://via.placeholder.com/300x160"},
+{id:"math",t:"الرياضيات المتقطعة",d:"المنطق، المجموعات، والعلاقات",img:"https://via.placeholder.com/300x160"},
+{id:"arabic",t:"اللغة العربية",d:"النحو والأساسيات اللغوية",img:"https://via.placeholder.com/300x160"},
+{id:"computer",t:"مهارات الحاسوب",d:"أساسيات استخدام الكمبيوتر",img:"https://via.placeholder.com/300x160"},
+{id:"comm",t:"مهارات الاتصال",d:"بناء تواصل فعال وواثق",img:"https://via.placeholder.com/300x160"},
 {id:"calc",t:"الحسبان",d:"Limits والتفاضل",img:"https://via.placeholder.com/300x160"},
-{id:"english",t:"اللغة الإنجليزية",d:"الأساسيات والمحادثة",img:"images/english.jpg"},
-{id:"islamic",t:"الثقافة الإسلامية",d:"القيم الإسلامية",img:"https://via.placeholder.com/300x160"},
+{id:"english",t:"اللغة الإنجليزية",d:"الأساسيات والمحادثة",img:"https://via.placeholder.com/300x160"},
+{id:"islamic",t:"الثقافة الإسلامية",d:"القيم والمفاهيم الإسلامية",img:"https://via.placeholder.com/300x160"},
 ];
 
 document.write(courses.map(c=>`
 <div class="course-card" onclick="openCourse('${c.id}')">
-<img src="${c.img}">
+<img src="${c.img}" alt="${c.t}">
 <div class="course-card-body">
 <h5>${c.t}</h5>
 <p>${c.d}</p>
-<div class="btn-enter">الدخول للكورس</div>
+<a class="btn-enter">الدخول للكورس</a>
 </div>
 </div>
 `).join(""));
 </script>
 </div>
+</div>
+
+<!-- COURSE PAGES -->
+<div class="container mt-5 course-page" id="prog">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">أساليب البرمجة</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>تعلم أساسيات البرمجة، التفكير المنطقي، وإنشاء البرامج البسيطة خطوة بخطوة.</p>
+  </div>
+  <div class="lesson mt-4">
+    <h5>الدرس الأول: مدخل إلى البرمجة</h5>
+    <video controls src="videos/prog1.mp4"></video>
+    <p>شرح أساسيات البرمجة وأهمية تعلمها.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="math">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">الرياضيات المتقطعة</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>يتناول المنطق، المجموعات، والعلاقات بطريقة عملية لتسهيل الفهم.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="arabic">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">اللغة العربية</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>أساسيات النحو واللغة العربية بطريقة مبسطة وسهلة الفهم.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="computer">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">مهارات الحاسوب</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>أساسيات استخدام الحاسوب والبرامج المهمة للعمل والدراسة.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="comm">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">مهارات الاتصال</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>تعلم بناء تواصل فعال وواثق في بيئة العمل والحياة اليومية.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="calc">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">الحسبان</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>تعلم Limits، التفاضل والتكامل بطريقة مبسطة.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="english">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">اللغة الإنجليزية</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>الأساسيات، المحادثة، والقواعد بطريقة سهلة ومبسطة.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="islamic">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">الثقافة الإسلامية</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>القيم والمفاهيم الإسلامية وأهميتها في الحياة اليومية بطريقة عملية.</p>
+  </div>
 </div>
 
 <footer>
@@ -219,28 +299,34 @@ document.write(courses.map(c=>`
 const ACCESS_PASSWORD="hoota2025";
 
 function openCourse(id){
- let p=prompt("🔐 أدخل كلمة المرور:");
- if(p!==ACCESS_PASSWORD){alert("كلمة المرور غير صحيحة");return;}
- document.getElementById("home").style.display="none";
- document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
- document.getElementById(id)?.classList.add("active");
- window.scrollTo(0,0);
+  let p=prompt("🔐 أدخل كلمة المرور للدخول إلى الكورس:");
+  if(p!==ACCESS_PASSWORD){
+    alert("كلمة المرور غير صحيحة");
+    return;
+  }
+  document.getElementById("home").style.display="none";
+  document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo(0,0);
 }
 
 function backHome(){
- document.getElementById("home").style.display="block";
- document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
+  document.getElementById("home").style.display="block";
+  document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
+  window.scrollTo(0,0);
 }
 
 function toggleDark(){
- document.body.classList.toggle("dark");
- localStorage.setItem("theme",
- document.body.classList.contains("dark")?"dark":"light");
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark")?"dark":"light");
 }
 
-if(localStorage.getItem("theme")==="dark")
- document.body.classList.add("dark");
+if(localStorage.getItem("theme")==="dark"){
+  document.body.classList.add("dark");
+}
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
