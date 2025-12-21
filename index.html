@@ -66,9 +66,9 @@ body.dark .ios-switch::before{left:22px}
 /* ===== BACK BUTTON ===== */
 .back-btn{
     display:inline-block;margin-bottom:25px;
-    background:#0d6efd;color:#fff;
-    padding:12px 30px;border-radius:30px;
-    font-size:18px;font-weight:700;cursor:pointer;
+    background:#ff5722;color:#fff;
+    padding:15px 35px;border-radius:30px;
+    font-size:20px;font-weight:700;cursor:pointer;
 }
 
 /* ===== LESSON ===== */
@@ -173,14 +173,88 @@ document.write(courses.map(c=>`
 </div>
 </div>
 
-<!-- COURSE: ISLAMIC (نموذج) -->
-<div class="container mt-5 course-page" id="islamic">
-<div class="back-btn" onclick="backHome()">⬅ الرجوع للكورسات</div>
-<h2>الثقافة الإسلامية</h2>
-<div class="lesson">
-<h5>مدخل إلى الثقافة الإسلامية</h5>
-<video controls src="videos/islamic1.mp4"></video>
+<!-- COURSE PAGES -->
+<!-- نموذج لكل كورس، يمكنك إضافة فيديوهات أكثر داخل كل درس -->
+<div class="container mt-5 course-page" id="prog">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">أساليب البرمجة</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>تعلم أساسيات البرمجة، التفكير المنطقي، وإنشاء البرامج البسيطة خطوة بخطوة.</p>
+  </div>
+  <div class="lesson mt-4">
+    <h5>الدرس الأول: مدخل إلى البرمجة</h5>
+    <video controls src="videos/prog1.mp4"></video>
+    <p>شرح أساسيات البرمجة وأهمية تعلمها.</p>
+  </div>
 </div>
+
+<div class="container mt-5 course-page" id="math">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">الرياضيات المتقطعة</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>يتناول المنطق، المجموعات، والعلاقات بطريقة عملية لتسهيل الفهم.</p>
+  </div>
+  <div class="lesson mt-4">
+    <h5>الدرس الأول: المجموعات والمنطق</h5>
+    <video controls src="videos/math1.mp4"></video>
+    <p>تعلم أساسيات المجموعات والمنطق الرمزي.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="arabic">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">اللغة العربية</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>أساسيات النحو واللغة العربية بطريقة مبسطة وسهلة الفهم.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="computer">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">مهارات الحاسوب</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>أساسيات استخدام الحاسوب والبرامج المهمة للعمل والدراسة.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="comm">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">مهارات الاتصال</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>تعلم بناء تواصل فعال وواثق في بيئة العمل والحياة اليومية.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="calc">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">الحسبان</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>تعلم Limits، التفاضل والتكامل بطريقة مبسطة.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="english">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">اللغة الإنجليزية</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>الأساسيات، المحادثة، والقواعد بطريقة سهلة ومبسطة.</p>
+  </div>
+</div>
+
+<div class="container mt-5 course-page" id="islamic">
+  <div class="back-btn" onclick="backHome()">⬅ العودة للكورسات</div>
+  <h2 class="mt-3">الثقافة الإسلامية</h2>
+  <div class="home-article mt-3">
+    <h4>لمحة عن الكورس</h4>
+    <p>القيم والمفاهيم الإسلامية وأهميتها في الحياة اليومية بطريقة عملية.</p>
+  </div>
 </div>
 
 <footer>
@@ -191,30 +265,31 @@ document.write(courses.map(c=>`
 const ACCESS_PASSWORD="hoota2025";
 
 function openCourse(id){
-let p=prompt("🔐 أدخل كلمة المرور للدخول إلى الكورس:");
-if(p!==ACCESS_PASSWORD){
-alert("كلمة المرور غير صحيحة");
-return;
-}
-document.getElementById("home").style.display="none";
-document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-window.scrollTo(0,0);
+  let p=prompt("🔐 أدخل كلمة المرور للدخول إلى الكورس:");
+  if(p!==ACCESS_PASSWORD){
+    alert("كلمة المرور غير صحيحة");
+    return;
+  }
+  document.getElementById("home").style.display="none";
+  document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo(0,0);
 }
 
 function backHome(){
-document.getElementById("home").style.display="block";
-document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
-window.scrollTo(0,0);
+  document.getElementById("home").style.display="block";
+  document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
+  window.scrollTo(0,0);
 }
 
 function toggleDark(){
-document.body.classList.toggle("dark");
-localStorage.setItem("theme",
-document.body.classList.contains("dark")?"dark":"light");
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark")?"dark":"light");
 }
+
 if(localStorage.getItem("theme")==="dark"){
-document.body.classList.add("dark");
+  document.body.classList.add("dark");
 }
 </script>
 
