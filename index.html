@@ -17,79 +17,109 @@ body{
 
 /* ===== NAVBAR ===== */
 .navbar-brand{font-weight:700;font-size:22px}
-.nav-link{font-size:18px;font-weight:600}
+.nav-link{font-size:17px;font-weight:600}
+
+/* ===== IOS TOGGLE ===== */
+.ios-switch{
+    width:42px;
+    height:22px;
+    background:#ccc;
+    border-radius:20px;
+    position:relative;
+    cursor:pointer;
+}
+.ios-switch::before{
+    content:"";
+    width:18px;
+    height:18px;
+    background:#fff;
+    position:absolute;
+    top:2px;
+    left:2px;
+    border-radius:50%;
+    transition:.3s;
+}
+body.dark .ios-switch{
+    background:#0d6efd;
+}
+body.dark .ios-switch::before{
+    left:22px;
+}
 
 /* ===== HERO ===== */
 .hero{
     background:linear-gradient(135deg,#0d6efd,#0a58ca);
     color:#fff;
-    padding:70px 20px;
+    padding:60px 20px;
     text-align:center;
     border-radius:0 0 30px 30px;
 }
 
-/* ===== COURSES ===== */
-.section-title{font-weight:700;margin-bottom:25px}
+/* ===== HOME ARTICLE ===== */
+.home-article{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    margin-top:40px;
+    line-height:1.9;
+    border:2px solid #dee2e6;
+}
 
+/* ===== COURSES ===== */
 .course-card{
-    border:3px solid #0d6efd;
+    border:2px solid #0d6efd;
     border-radius:15px;
-    transition:.3s;
+    padding:20px;
+    height:100%;
     cursor:pointer;
+    transition:.3s;
 }
 .course-card:hover{
     transform:translateY(-5px);
     background:#e9f1ff;
 }
+.course-card h5{font-weight:700}
+.course-card p{font-size:14px;color:#555}
 
-.course-card h5{font-weight:700;margin-bottom:15px}
-.course-card button{font-size:18px;padding:10px}
-
+/* ===== COURSE PAGE ===== */
 .course-page{display:none}
 .course-page.active{display:block}
-
-/* ===== LESSON ===== */
-.lesson{
-    background:#fff;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:20px;
-    border:2px solid #dee2e6;
-}
-
-video{
-    width:100%;
-    border-radius:10px;
-    margin-bottom:10px;
-}
 
 /* ===== BACK BUTTON ===== */
 .back-btn{
     display:inline-block;
-    margin-bottom:20px;
+    margin-bottom:25px;
     background:#0d6efd;
     color:#fff;
-    padding:12px 25px;
+    padding:12px 30px;
     border-radius:30px;
     font-size:18px;
     font-weight:700;
     cursor:pointer;
-    text-decoration:none;
 }
-.back-btn:hover{background:#084298}
 
-/* ===== WHATSAPP ===== */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    background:#25D366;
-    color:#fff;
-    padding:16px;
-    border-radius:50%;
-    font-size:24px;
-    text-decoration:none;
+/* ===== LESSON ===== */
+.lesson{
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    border:2px solid #dee2e6;
+    margin-bottom:20px;
 }
+video{width:100%;border-radius:10px}
+
+/* ===== DARK MODE ===== */
+body.dark{background:#121212;color:#eaeaea}
+body.dark .navbar,
+body.dark footer{background:#1f1f1f !important}
+body.dark .hero{background:linear-gradient(135deg,#222,#000)}
+body.dark .course-card,
+body.dark .lesson,
+body.dark .home-article{
+    background:#1e1e1e;
+    border-color:#333;
+}
+body.dark p{color:#ccc}
 
 /* ===== FOOTER ===== */
 footer{
@@ -97,48 +127,6 @@ footer{
     padding:30px;
     margin-top:50px;
     text-align:center;
-}
-
-/* ===== DARK MODE ===== */
-body.dark{
-    background:#121212;
-    color:#eaeaea;
-}
-
-body.dark .navbar,
-body.dark footer{
-    background:#1f1f1f !important;
-}
-
-body.dark .hero{
-    background:linear-gradient(135deg,#222,#000);
-}
-
-body.dark .course-card{
-    background:#1e1e1e;
-    border-color:#0d6efd;
-}
-
-body.dark .lesson{
-    background:#1e1e1e;
-    border-color:#333;
-}
-
-body.dark a{color:#9ec5fe}
-
-.dark-toggle{
-    cursor:pointer;
-    font-size:20px;
-    background:#fff;
-    color:#000;
-    padding:8px 14px;
-    border-radius:20px;
-    font-weight:700;
-}
-
-body.dark .dark-toggle{
-    background:#000;
-    color:#fff;
 }
 </style>
 </head>
@@ -148,20 +136,20 @@ body.dark .dark-toggle{
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 <div class="container">
-<a class="navbar-brand" href="#">HOota Technology</a>
+<a class="navbar-brand">HOota Technology</a>
 
 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
 <span class="navbar-toggler-icon"></span>
 </button>
 
-<div class="collapse navbar-collapse" id="nav">
-<ul class="navbar-nav ms-auto">
+<div class="collapse navbar-collapse show" id="nav">
+<ul class="navbar-nav ms-auto align-items-center gap-3">
 <li class="nav-item"><a class="nav-link" onclick="backHome()">الرئيسية</a></li>
 <li class="nav-item"><a class="nav-link" href="#courses">الكورسات</a></li>
 <li class="nav-item"><a class="nav-link" href="https://wa.me/249900623733">تواصل معي</a></li>
 <li class="nav-item"><a class="nav-link" href="https://youtube.com/channel/UCDHo57HZnBCwPB0215yQXlA">يوتيوب</a></li>
 <li class="nav-item">
-<span class="nav-link dark-toggle" onclick="toggleDark()">🌙</span>
+<div class="ios-switch" onclick="toggleDark()"></div>
 </li>
 </ul>
 </div>
@@ -171,90 +159,88 @@ body.dark .dark-toggle{
 <!-- HERO -->
 <div class="hero">
 <h1>منصة HOota Technology</h1>
-<p class="mt-3">
-منصة تعليمية للكورسات الجامعية والتقنية بأسلوب مبسط وعملي
-</p>
+<p>تعليم جامعي وتقني بأسلوب عصري وبسيط</p>
 </div>
 
 <!-- HOME -->
-<div class="container mt-5" id="home">
-<h3 class="section-title text-center" id="courses">📚 الكورسات المتاحة</h3>
-<div class="row g-4">
+<div class="container" id="home">
 
+<div class="home-article">
+<h3>عن منصة HOota Technology</h3>
+<p>
+منصة HOota Technology هي منصة تعليمية رقمية تهدف إلى تقديم محتوى جامعي وتقني
+بأسلوب مبسط وعملي، يساعد الطالب على الفهم الحقيقي وليس الحفظ فقط.
+</p>
+<p>
+نركز في المنصة على بناء الأساس العلمي للطلاب في مجالات البرمجة، الحاسوب،
+الرياضيات، اللغات، والثقافة الإسلامية، مع شروحات مرئية وملفات داعمة.
+</p>
+<p>
+المنصة موجهة للطلاب الجامعيين وكل من يسعى لتطوير نفسه علميًا وتقنيًا،
+بواجهة سهلة وتجربة استخدام مريحة على الهاتف والكمبيوتر.
+</p>
+</div>
+
+<h3 class="mt-5 mb-4 text-center" id="courses">📚 الكورسات</h3>
+
+<div class="row g-4">
 <script>
 const courses=[
-{id:"prog",t:"أساليب البرمجة"},
-{id:"math",t:"الرياضيات المتقطعة"},
-{id:"arabic",t:"اللغة العربية"},
-{id:"computer",t:"مهارات الحاسوب"},
-{id:"comm",t:"مهارات الاتصال"},
-{id:"calc",t:"الحسبان"},
-{id:"english",t:"اللغة الإنجليزية"},
-{id:"islamic",t:"الثقافة الإسلامية"},
+{id:"prog",t:"أساليب البرمجة",d:"فهم أساسيات البرمجة وبناء التفكير المنطقي"},
+{id:"math",t:"الرياضيات المتقطعة",d:"المنطق، المجموعات، والعلاقات"},
+{id:"arabic",t:"اللغة العربية",d:"النحو والأساسيات اللغوية"},
+{id:"computer",t:"مهارات الحاسوب",d:"التعامل مع الكمبيوتر والبرامج"},
+{id:"comm",t:"مهارات الاتصال",d:"بناء تواصل فعال وواثق"},
+{id:"calc",t:"الحسبان",d:"Limits والتفاضل"},
+{id:"english",t:"اللغة الإنجليزية",d:"الأساسيات والمحادثة"},
+{id:"islamic",t:"الثقافة الإسلامية",d:"قيم، أخلاق، ومفاهيم إسلامية"},
 ];
 
 document.write(courses.map(c=>`
 <div class="col-md-4 col-sm-6">
-<div class="card course-card text-center p-3" onclick="openCourse('${c.id}')">
+<div class="course-card" onclick="openCourse('${c.id}')">
 <h5>${c.t}</h5>
-<button class="btn btn-primary w-100">الدخول للكورس</button>
+<p>${c.d}</p>
 </div>
 </div>
 `).join(""));
 </script>
+</div>
+</div>
 
+<!-- COURSE PAGE -->
+<div class="container mt-5 course-page" id="islamic">
+<div class="back-btn" onclick="backHome()">⬅ الرجوع للكورسات</div>
+<h2>الثقافة الإسلامية</h2>
+<div class="lesson">
+<h5>مدخل إلى الثقافة الإسلامية</h5>
+<video controls src="videos/islamic1.mp4"></video>
 </div>
 </div>
+
+<footer>
+<p>© 2025 HOota Technology</p>
+</footer>
 
 <script>
-const ACCESS_PASSWORD="hoota2025";
-
 function openCourse(id){
-let p=prompt("أدخل كلمة المرور:");
-if(p!==ACCESS_PASSWORD){alert("كلمة المرور غير صحيحة");return;}
 document.getElementById("home").style.display="none";
 document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
 document.getElementById(id).classList.add("active");
 window.scrollTo(0,0);
 }
-
 function backHome(){
 document.getElementById("home").style.display="block";
 document.querySelectorAll(".course-page").forEach(e=>e.classList.remove("active"));
-window.scrollTo(0,0);
 }
-
-/* DARK MODE */
 function toggleDark(){
 document.body.classList.toggle("dark");
-localStorage.setItem("theme",
-document.body.classList.contains("dark")?"dark":"light");
+localStorage.setItem("theme",document.body.classList.contains("dark")?"dark":"light");
 }
 if(localStorage.getItem("theme")==="dark"){
 document.body.classList.add("dark");
 }
 </script>
-
-<!-- COURSE: ISLAMIC -->
-<div class="container mt-5 course-page" id="islamic">
-<a class="back-btn" onclick="backHome()">⬅ الرجوع للكورسات</a>
-<h2>الثقافة الإسلامية</h2>
-<div class="lesson">
-<h5>مدخل إلى الثقافة الإسلامية</h5>
-<video controls src="videos/islamic1.mp4"></video>
-<a href="pdfs/islamic1.pdf">📄 تحميل PDF</a>
-</div>
-</div>
-
-<a href="https://wa.me/249900623733" class="whatsapp">💬</a>
-
-<footer>
-<a href="https://youtube.com/channel/UCDHo57HZnBCwPB0215yQXlA"
-class="btn btn-danger btn-lg">
-تابع قناتي على يوتيوب
-</a>
-<p class="mt-3">© 2025 HOota Technology</p>
-</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
